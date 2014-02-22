@@ -14,7 +14,7 @@ b. Write a main function which calculates the result from the input, using funct
 //#include "functions.c"
 
 /* translate string to int. */
-void strtoint( char str[], int integer[] ) {
+void strtoint( char *str, int *integer ) {
 	int i;
 	for ( i = 0; i < strlen(str); i++ ) integer[i] = str[i] - '0';
 }
@@ -78,7 +78,7 @@ void multi( int int1[] ) {
 
 void main( ) {
 	int integer[50];
-	char op = '0', str[50];
+	char op, str[50];
 
 	/* get inputs from stdinput. */
 	/* the integer and operator. */
@@ -86,7 +86,7 @@ void main( ) {
 	scanf( "%50s", str ); strtoint( str, integer );
 
 	printf( "enter the operator:\n" );
-	scanf( "%c", op );
+	scanf( "%c", &op );
 
 	switch ( op - '0' ) {
 		case ('+' - '0'):
