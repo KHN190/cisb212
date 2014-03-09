@@ -3,8 +3,8 @@
 
 //this should be included in function file.
 struct list {
-	int x, carry = 0;
-	p_list next, prev = NULL;
+	int x = 0, carry = 0;
+	p_list next = NULL, prev = NULL;
 };
 typedef struct list* p_list;
 
@@ -15,7 +15,7 @@ int str_to_int( char c ) {
 	else return -1;
 }
 
-//create a list node.
+//create a node.
 void new( p_list this ) {
 	//use this, this->next, this->prev to modify the number in list node.
 	next = ( p_list )malloc( sizeof( struct list ) );
@@ -31,6 +31,16 @@ void del( p_list this ) {
 	else printf( "the last element distinct on earth!\n" );
 
 	free( p );
+}
+
+//insert a node.
+void insert( p_list this ) {
+	p_list p = this;
+
+	//insert and pointer rolls back.
+	new( this );
+	this->next = p->next; this->prev = p;
+	p->next = this; this = p;
 }
 
 //maybe need either a function of find_next and find_prev.
@@ -59,22 +69,31 @@ void multi( p_list this, p_list that ) {
 }
 
 //read from stdin and convert.
-void read( ) {
+void read( p_list this) {
 	char str;
 	int i;
-	p_list header;
+	//no header necessary.
 
-	header = ( p_list )malloc( sizeof( struct list ) );
-	p_list this = header; this->prev = NULL; this->next = NULL;
-
+	//no limitation of digit length.
 	fgets( str, ,stdin );
-	for ( i = 0; i <= strlen(str); i++ ) {
+	//while str[i] != EOF.
+	for ( i = 0; i < strlen(str); i++ ) {
 		int x = str_to_int( str[i] );
-		this->x = x;
+
+		//recognize a digit.
+		if ( x >= 0 && x <= 9) {
+			new( this );
+			this->x = x;
+		} else
+		return "error: not a digit!\nprogram terminated.\n";
 	}
+	fflush( stdin ); //clear stdin buffer.
 }
 
-
+//main function.
 void main() {
-	char str = read();
+	p_list this = NULL;
+	read( this );
+
+	return 0;
 }

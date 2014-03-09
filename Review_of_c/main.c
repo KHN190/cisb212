@@ -21,7 +21,7 @@ void main( ) {
 	/* the integer and the operator. */
 	printf( "enter 50 digits string for input:\n");
 	fgets( str, 51, stdin ); strtoint( str, integer );
-	fflush( stdin ); // clear sdtion buffer.
+	fflush( stdin ); // clear stdin buffer.
 
 	printf( "enter the operator:\n" );
 	op = getch(); printf("%c\n", op);
