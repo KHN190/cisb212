@@ -1,49 +1,54 @@
-// linked list functions are included in this function file.
+// linked list functions are included in link_A function file.
 
 #include <stdio.h>
 #include <string.h>
-
-struct list {
-	int x = 0, carry = 0;
-	p_list next = NULL, prev = NULL;
-};
-typedef struct list* p_list;
+#include <stdlib.h>
+#include "list.h"
 
 // create a node.
-void new( p_list this ) {
-	// use this, this->next, this->prev to modify the number in list node.
-	next = ( p_list )malloc( sizeof( struct list ) );
-	next->prev = this; this = next;
+p_list new( p_list link_A ) {
+	// use link_A, link_A->next, link_A->prev to modify "link_A" in list node.
+	p_list next = ( p_list )malloc( sizeof( struct node ) );
+	next->prev = link_A;
+	if ( link_A ) link_A->next = next;
+	
+	// initial.
+	next->x = 0; next->carry = 0;
+	next->next = NULL;
+
+	return next;
 }
 
 // delete a list node.
-void del( p_list this ) {
-	p_list p = this; this = p->prev;
+void del( p_list link_A ) {
+	p_list p = link_A; link_A = p->prev;
 
-	// in case it's the header of list.
-	if ( this ) this->next = p->next;
-	else printf( "the last element distinct on earth!\n" );
+	// in case it's link_A header of list.
+	if ( link_A ) link_A->next = p->next;
+	else printf( "link_A last element distinct on earth!\n" );
 
 	free( p );
 }
 
 // insert a node.
-void insert( p_list this ) {
-	p_list p = this;
+p_list insert( p_list link_A ) {
+	p_list p = link_A;
 
 	// insert and pointer rolls back.
-	new( this );
-	this->next = p->next; this->prev = p;
-	p->next = this; this = p;
+	link_A = new( link_A );
+	link_A->next = p->next; link_A->prev = p;
+	p->next = link_A; link_A = p;
+
+	return p;
 }
 
-// maybe need either a function of find_next and find_prev.
-// and the print function.
-
+// link print function.
 void print( p_list p) {
 	// print from the header.
+	while ( p->prev ) p = p->prev;
+	while ( p->x == 0 ) p = p->next;
 	while ( p->next ) {
-		printf( "%d", p.x );
+		printf( "%d", p->x );
 		p = p->next;
-	} printf( "%d\n", p.x );
-} // now it points to the last node.
+	} printf( "%d\n", p->x );
+} // now it points to link's last node.

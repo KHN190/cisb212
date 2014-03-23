@@ -1,132 +1,102 @@
-// this file contains the operation functions.
-// which should be 
+// this file contains operation functions.
+// used for main function between basic operations.
 
 #include <stdio.h>
 #include <string.h>
-#include "list.c"
+#include "list.h"
 
+// 如果加法对了，乘法还要改。
 // operations.
-void add( p_list this, p_list that ) {
-	int x, y, c, op;
-
-	// modify here to match different length.
-	// consider the carry! new node.
-	while ( this->prev && that->prev ) {
-		x = this.x; y = that.x; c = this.carry;
-		op = x + y + c;
-
-		this.x = op % 10; // operation.
-		this->prev.carry = op / 10;
-
-		this = this->prev; that = that->prev; // move pointers.
-	}
-
-	// when at least one of them points to the header.
-	x = this.x; y = that.x; c = this.carry;
-	op = x + y + c;
-
-	if ( this->prev ) {
-		// A link is longer.
-		while ( this->prev ) {
-			this.x = op % 10; this = this->prev;
-			this.carry = op / 10;
-			op = this.x + this.carry;
-		}
-	} else {
-		// B link is longer.
-		while ( that->prev ) {
-			// create new node and allocate.
-			p_list p = new( NULL );
-			p->next = this; this->prev = p;
-
-			this.x = op % 10; this = this->prev;
-			this.carry = op / 10;
-			op = that.x + this.carry;
-		}
-	} // it will points to the headers.
-
-	// when we have the last carry out.
-	if ( op >= 10 ) {
+void carry_out(p_list link_A, int op) {
+	// when we have the overflow.
+	if ( op >= 10 && link_A->prev == NULL ) {
 		p_list p = new( NULL );
-		p->next = this; this->prev = p; this = p;
-
-		this.x = op % 10;
+		p->next = link_A; link_A->prev = p;
+	}
+	link_A->x = op % 10; link_A->carry = 0;
+	if (link_A->prev) {
+		link_A->prev->carry = op / 10;
+		link_A->prev->x += link_A->prev->carry;
 	}
 }
 
-void multi( p_list this, p_list that ) {
-	int x, y, op, c;
+void add( p_list link_A, p_list link_B ) {
+	int x, y, c, op;
 
-	// when they are not headers.
-	while ( this->prev && that->prev ) {
-		x = this.x; y = that.x; c = this.carry;
-		op = x * y + c;
+	// consider link_A carry! new node.
+	while ( link_A->prev && link_B->prev ) {
+		x = link_A->x; y = link_B->x; c = link_A->carry;
+		op = x + y + c; // operate.
+		carry_out( link_A, op );
 
-		this.x = op % 10; // operation.
-		this->prev.carry = op / 10;
+		link_A = link_A->prev; link_B = link_B->prev; // move pointers.
+	} // now we have at least one header.
 
-		this = this->prev; that = that->prev; // move pointers.
-	}
-
-	// when at least one of them points to the header.
-	x = this.x; y = that.x; c = this.carry;
-	op = x * y + c;
-
-	if ( this->prev ) {
-		// A link is longer.
-		while ( this->prev ) {
-			this.x = op % 10; this = this->prev;
-			this.carry = op / 10;
-			op = this.x + this.carry;
+	if ( link_A->prev == NULL ) { // link_A points to header.
+		while ( link_B->prev ) {
+			op = link_B->x + link_A->x + link_A->carry;
+			carry_out( link_A, op );
+			// move pointers.
+			link_A = link_A->prev; link_B = link_B->prev;
 		}
-	} else {
-		// B link is longer.
-		while ( that->prev ) {
-			// create new node and allocate.
-			p_list p = new( NULL );
-			p->next = this; this->prev = p;
-
-			this.x = op % 10; this = this->prev;
-			this.carry = op / 10;
-			op = that.x + this.carry;
-		}
-	} // it will points to the headers.
-
-	// when we have the last carry out.
-	if ( op >= 10 ) {
-		p_list p = new( NULL );
-		p->next = this; this->prev = p; this = p;
-
-		this.x = op % 10;
+		// link_B points to header too.
+		op = link_B->x + link_A->x + link_A->carry;
+		carry_out( link_A, op );
+	} else { // link_A points to not a header.
+		op = link_B->x + link_A->x + link_A->carry;
+		carry_out( link_A, op );
+		link_A = link_A->prev;
+		// find header.
+		while ( link_A->prev ) {
+			op = link_A->x + link_A->carry;
+			carry_out( link_A, op );
+			link_A = link_A->prev;
+		} // when header found.
+		op = link_A->x + link_A->carry;
+		carry_out( link_A, op );
 	}
+}
+
+void multi( p_list link_A, p_list link_B ) {
+	int x, y, c, op;
+
+	// consider link_A carry! new node.
+	while ( link_A->prev ) {
+		x = link_A->x; y = link_B->x; c = link_A->carry;
+		op = x * y + c; // operate.
+		carry_out( link_A, op );
+
+		link_A = link_A->prev; // move pointers.
+	} // now we have at least one header.
+	op = link_A->x * link_B->x + link_A->carry;
+	carry_out( link_A, op );
 }
 
 // convert a char in str to int.
 int str_to_int( char c ) {
 	int x = c - '0';
-	if ( 0 <= x && x <= 9 ) return c - '0';
+	if ( 0 <= x && x <= 9 ) return x;
 	else return -1;
 }
 
 // read from stdin and convert.
-void read( p_list this) {
-	char str;
-	int i;
-	// no header necessary.
-
-	// no limitation of digit length.
-	fgets( str, 0x1111111, stdin );
-	// while str[i] != EOF.
-	for ( i = 0; i < strlen(str); i++ ) {
-		int x = str_to_int( str[i] );
-
-		// recognize a digit.
-		if ( x >= 0 && x <= 9) {
-			new( this );
-			this.x = x;
-		} else
-		return "error: illegal digit. process terminated.\n\n";
+p_list read( p_list link_A) {
+	char c, t;
+	int x;
+	// while c is a digit.
+	// omit newline characters.
+	while ( (t = getchar()) ) {
+		if ( t != '\n' ) break;
 	}
-	fflush( stdin ); // clear stdin buffer toilet.
-	// "this" points to the last digit.
+	while ( 1 ) {
+		if ( t == '\n' ) c = fgetc(stdin);
+		else c = t; t = '\n';
+		x = str_to_int( c );
+
+		// scan digits, report errors.
+		if ( x >= 0 && x <= 9) {
+			link_A = new( link_A );
+			link_A->x = x;
+		} else break;
+	} return link_A; // "link_A" points to the last digit.
 }
