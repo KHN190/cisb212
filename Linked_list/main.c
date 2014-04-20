@@ -2,34 +2,19 @@
 #include <string.h>
 #include "list.h"
 
-void main() {
-	p_list link_A = NULL, link_B = NULL;
-	char op; 
+// MAIN BODY OF PROGRAM
+int main() {
 
-	printf( "enter the first number:\n" );
-	link_A = read( link_A ); // link_A points to the last node.
-	if ( link_A == NULL ) {
-		printf( "error: empty digit.\n" );
-		return; // error report.
-	}
+	p_list H = NULL;
+	int flag;
 
-	printf( "enter the operator:\n" );
-	while (fgetc(stdin) == '\n') fgetc(stdin);
-	op = fgetc(stdin);
+	H = read(H);	// CREATE THE LIST
 
-	// recognize operand.
-	switch ( op - '0' ) {
-		case ('+' - '0'): // link_B points to link_A last node and operate from the lowest.
-			printf( "enter the second number:\n" );
-			link_B = read( link_B ); add( link_A, link_B );
-			break;
-		case ('*' - '0'): // link_B ponits to link_A last node and operate from the lowest.
-			printf( "enter the second number:\n" );
-			link_B = read( link_B ); multi( link_A, link_B );
-			break;
-		default:
-			printf( "error: illegal operand.\nprogram terminated.\n\n" );
-	} print( link_A ); // show operation result.
+	while (1) {
+		flag  = revCom( H );
+		if ( ! flag )
+			break;	// BREAK IF COMMAND EXECUTED
+	}	// RECEIVE COMMAND AND EXECUTE
 
-	return;
+	return 0;
 }

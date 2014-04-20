@@ -2,18 +2,18 @@
 
 typedef struct node* p_list;
 struct node {
-	int x, carry;
+	int x;
 	p_list next, prev;
 };
 
-p_list new( p_list link_A );
-void del( p_list link_A );
-p_list insert( p_list link_A );
-void print( p_list p);
+p_list new( p_list l );
+p_list read( p_list l);
 
-p_list read( p_list link_A);
-int str_to_int( char c );
-void multi( p_list link_A, p_list link_B );
-void add( p_list link_A, p_list link_B );
+void double_del(p_list H);
+void odd_print(p_list H);
+void reverse(p_list H);
+void print(p_list H);
+int find(p_list H, int i);
+int revCom(p_list H);
 
 #endif

@@ -5,7 +5,6 @@
 #include <string.h>
 #include "list.h"
 
-// 如果加法对了，乘法还要改。
 // operations.
 void carry_out(p_list link_A, int op) {
 	// when we have the overflow.
