@@ -66,7 +66,7 @@ p_list read( p_list H) {
 
 	fp = fopen("data100.txt", "r");
 	if (!fp) {
-		printf("FILE IS NOT FOUND.\n\n");
+		printf("FILE NOT FOUND.\n\n");
 		return NULL;
 	}
 	
