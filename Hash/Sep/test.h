@@ -19,6 +19,8 @@ typedef int ElementType;
         void Insert( ElementType Key, HashTable H );
         ElementType Retrieve( p_list P );
         /* Routines such as Delete are MakeEmpty are omitted */
+        void check(ElementType Key, HashTable H);
+        void traverse(HashTable H);
 
         #endif  /* _HashSep_H */
 /* END */

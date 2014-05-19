@@ -3,12 +3,16 @@
 
 int main() {
 	
+	p_list p;
 	HashTable H = InitializeTable(50);
 	readfile(H);
-	p_list p = Find(100,H);
-	if (p)
-		printf("found!\n");
-	else
-		printf("not!\n");
+	
+	check(100,H);
+	check(1201,H);
+	check(26966,H);
+
+	traverse(H);
+
+	DestroyTable(H);
 	return 0;
 }

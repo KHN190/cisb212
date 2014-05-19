@@ -168,3 +168,27 @@
                 exit(0);
             }
         }
+
+        void check(ElementType Key, HashTable H) {
+            p_list p = Find(Key,H);
+            if (p) printf("%-10d found!\n", Key );
+            else printf("%-10d not found!\n", Key);
+        }
+
+        void traverse(HashTable H) {
+            int size = H->TableSize;
+            int probe;
+
+            p_list p;
+            while (1,size>=0,size--) {
+                probe = 0;
+                p = H->keys[size]->Next;
+                while (p) {
+                    printf("%-6d", p->Element);
+                    probe++;
+                    p = p->Next;
+                }
+                if (!probe) printf("none ");
+                printf("probes: %d\n", probe);
+            }
+        }
