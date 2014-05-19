@@ -21,6 +21,8 @@ typedef int ElementType;
         /* Routines such as Delete are MakeEmpty are omitted */
         void check(ElementType Key, HashTable H);
         void traverse(HashTable H);
+        void Delete(ElementType Key, HashTable H);
+        void double_del(HashTable H);
 
         #endif  /* _HashSep_H */
 /* END */

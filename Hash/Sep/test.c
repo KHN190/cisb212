@@ -192,3 +192,41 @@
                 printf("probes: %d\n", probe);
             }
         }
+
+        void Delete(ElementType Key, HashTable H) {
+
+            p_list p, prev;
+            p = Find(Key,H);
+            if (!p) {
+                printf("Delete: key not found\n");
+                return;
+            }
+
+            key L;
+            L = H->keys[ Hash( Key, H->TableSize ) ];
+            prev = L;
+            while( prev->Next != p )
+                prev = prev->Next;
+
+            prev->Next = p->Next;
+            free(p);
+        }
+
+        void double_del(HashTable H) {
+            char c = '\b';
+            int x, count = 0;
+            FILE *fp;
+            if (fp = fopen("data100.txt", "r")) {
+                while (c != EOF) {
+                    fscanf( fp, "%d", &x );
+                    if (count % 2 == 0)
+                        Delete(x, H);
+                    c = fgetc( fp );
+                    count++;
+                }
+               fclose(fp);
+            } else {
+                printf("cannot find file \"data100.txt\".\n");
+                exit(0);
+            }
+        }

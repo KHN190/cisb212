@@ -11,6 +11,10 @@ int main() {
 	check(1201,H);
 	check(26966,H);
 
+	//traverse(H);
+
+	double_del(H);
+	printf("\n");
 	traverse(H);
 
 	DestroyTable(H);
