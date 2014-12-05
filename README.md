@@ -1,18 +1,16 @@
 CISB212
 =======
 
-Data Structure course materials.
-
 http://www.cis.umac.mo/~sftw111/
 
-# The integers supported in a programming language is limited in size, usually to 32 bits. If you want to use integers above the limit, you need to write your own code. A large integer can be represented by a string over 0,1,2,...9. For example, string 12345678900987654321123456789009876543211234567890 represents a 50 digits integer. The input contains several lines. Each line starts with an interger, then either + or *, and then another integer. Assume the integer is 50 digits, and for simplicity, assume the second integer for multiplication is a single digit (between 0 and 9).
+The integers supported in a programming language is limited in size, usually to 32 bits. If you want to use integers above the limit, you need to write your own code. A large integer can be represented by a string over 0,1,2,...9. For example, string 12345678900987654321123456789009876543211234567890 represents a 50 digits integer. The input contains several lines. Each line starts with an interger, then either + or *, and then another integer. Assume the integer is 50 digits, and for simplicity, assume the second integer for multiplication is a single digit (between 0 and 9).
 
 ### Sample input and output
 
-#### 12345678900987654321123456789009876543211234567890 + 56789009876543211234567890098765432112345678901234
-#### 69134688777530865555691346887775308655556913469124 
-#### 56789009876543211234567890098765432112345678901234 * 5
-#### 283945049382716056172839450493827160561728394506170
+##### 12345678900987654321123456789009876543211234567890 + 56789009876543211234567890098765432112345678901234
+##### 69134688777530865555691346887775308655556913469124 
+##### 56789009876543211234567890098765432112345678901234 * 5
+##### 283945049382716056172839450493827160561728394506170
     
 * Write functions for + and *.
 * Write a main function which calculates the result from the input, using functions implemented in a.
@@ -39,8 +37,8 @@ Write a program to evaluate a postfix expression. Assume the numbers are integer
 
 ### Queue
 
-# Implement the contiguous queue ADT with size field removed. Run the test program testque_array.c. 
-# Implement the remaining basic operations of queue by linked list. Modify the test program testque_array.c to run it on linked list implementation. 
++ Implement the contiguous queue ADT with size field removed. Run the test program testque_array.c. 
++ Implement the remaining basic operations of queue by linked list. Modify the test program testque_array.c to run it on linked list implementation. 
 
 
 ### Hashing
@@ -51,45 +49,44 @@ Repeat 1, using open addressing with quadratic probing, table size next prime nu
 Add a basic operation which deletes a key from the hash table with separate chaining. Use this operation to delete even position numbers of the input file from the hash table obtained in step 1.
 Trees
 
-# Insert numbers in data 100 in a binary search tree.
-# Print out the numbers in the tree after step 1 in inorder and check if the numbers are sorted.
-# Delete the numbers at positions 5, 10, 15,... 5*i... (as usual, the first number is assumed to be at position 0) of file data 100 from the search tree and repeat step 2.
-# Implement the operations FindMin, Find and Insert without using recursion and repeat 1, 2 and 3 using the new implementation.
++ Insert numbers in data 100 in a binary search tree.
++ Print out the numbers in the tree after step 1 in inorder and check if the numbers are sorted.
++ Delete the numbers at positions 5, 10, 15,... 5*i... (as usual, the first number is assumed to be at position 0) of file data 100 from the search tree and repeat step 2.
++ Implement the operations FindMin, Find and Insert without using recursion and repeat 1, 2 and 3 using the new implementation.
 
 http://www.cis.umac.mo/~sftw210/
 
 ### Binary Heap
 
-
-1. Read in numbers in data 100 one by one and insert them into an initially empty heap. Print out the elements in the array (you should check the output to see if the heap order is satisfied). 
-2. Write a function to print out elements that are smaller than 15000 (not necessary in sorted order). The function should run in O(K), where K is the number of the elements you print out. 
-3. Read in numbers in data 100 into an array. Implement BuildHeap and use it to convert the array into a heap. 
-4. Find the 30th smallest element by repeatly using DeleteMin. 
-5. Implement Algorithm 6B and use it to find the 71st largest element in file data 100. 
-6. Repeat 3 and 5 using a 4-heap. 
++ Read in numbers in data 100 one by one and insert them into an initially empty heap. Print out the elements in the array (you should check the output to see if the heap order is satisfied). 
++ Write a function to print out elements that are smaller than 15000 (not necessary in sorted order). The function should run in O(K), where K is the number of the elements you print out. 
++ Read in numbers in data 100 into an array. Implement BuildHeap and use it to convert the array into a heap. 
++ Find the 30th smallest element by repeatly using DeleteMin. 
++ Implement Algorithm 6B and use it to find the 71st largest element in file data 100. 
++ Repeat 3 and 5 using a 4-heap. 
 
 
 ### Leftist and AVL Trees
 
-# Insert odd position elements of data10000 into one leftlist heap, and insert even position elements of data10000 into another leftlist heap. 
-# Print out the right paths of these two leftistheaps. 
-# Merge the above two leftist heaps. Print out the right path of the merged leftistheap. Print out the height of the merged leftistheap. 
-# Implement AVL tree insertion operation and code double rotations directly (do not copy two single rotations from the textbook). 
-# Insert the numbers in the example p114-119 in the same order as in the textbook, and print out the preorder. textbook, and print out the preorder. 
-# Insert the numbers in data 10000 into an AVL tree and calculate the height of the tree.
++ Insert odd position elements of data10000 into one leftlist heap, and insert even position elements of data10000 into another leftlist heap. 
++ Print out the right paths of these two leftistheaps. 
++ Merge the above two leftist heaps. Print out the right path of the merged leftistheap. Print out the height of the merged leftistheap. 
++ Implement AVL tree insertion operation and code double rotations directly (do not copy two single rotations from the textbook). 
++ Insert the numbers in the example p114-119 in the same order as in the textbook, and print out the preorder. textbook, and print out the preorder. 
++ Insert the numbers in data 10000 into an AVL tree and calculate the height of the tree.
 
 
 ### Sorting
 
-# Implement the insertion sort and count the number of moves on input in file data 10000. 
-# Implement the insertion sort using linked list and try it on input in file data 100. 
-# Experiment Shellsort using different Shell's and Hibbard's increments and count the number of moves in sorting the numbers in file data 10000.
-# Implement Mergesort using linked list and try it on input in file data 100. Do not introduce a new list.
-# Implement Quicksort and count the number of comparisons on input in file data 10000. 
++ Implement the insertion sort and count the number of moves on input in file data 10000. 
++ Implement the insertion sort using linked list and try it on input in file data 100. 
++ Experiment Shellsort using different Shell's and Hibbard's increments and count the number of moves in sorting the numbers in file data 10000.
++ Implement Mergesort using linked list and try it on input in file data 100. Do not introduce a new list.
++ Implement Quicksort and count the number of comparisons on input in file data 10000. 
 
 
 ### Graph
 
-# Implement the topological sort based on depth-first search (this is different from the algorithm in the textbook which is based on breadth-first). Use adjacency list to represent a graph. Print out the topological order for the graph in Fig 9.3 (for simplicity, rename the nodes by integers from 0, from left to right and from top to bottom). 
-# Implement Prim's Minimal Spanning Tree algorithm using adjacency matrix to represent a graph. Run your program on the graph in Figure 9.48 and print out the values of d[V] and p[V]. 
++ Implement the topological sort based on depth-first search (this is different from the algorithm in the textbook which is based on breadth-first). Use adjacency list to represent a graph. Print out the topological order for the graph in Fig 9.3 (for simplicity, rename the nodes by integers from 0, from left to right and from top to bottom). 
++ Implement Prim's Minimal Spanning Tree algorithm using adjacency matrix to represent a graph. Run your program on the graph in Figure 9.48 and print out the values of d[V] and p[V]. 
 graph.h ,somegraphcode.c , graphdata . 
