@@ -3,14 +3,7 @@ CISB212
 
 http://www.cis.umac.mo/~sftw111/
 
-The integers supported in a programming language is limited in size, usually to 32 bits. If you want to use integers above the limit, you need to write your own code. A large integer can be represented by a string over 0,1,2,...9. For example, string 12345678900987654321123456789009876543211234567890 represents a 50 digits integer. The input contains several lines. Each line starts with an interger, then either + or *, and then another integer. Assume the integer is 50 digits, and for simplicity, assume the second integer for multiplication is a single digit (between 0 and 9).
-
-### Sample input and output
-
-##### 12345678900987654321123456789009876543211234567890 + 56789009876543211234567890098765432112345678901234
-##### 69134688777530865555691346887775308655556913469124 
-##### 56789009876543211234567890098765432112345678901234 * 5
-##### 283945049382716056172839450493827160561728394506170
+The integers supported in a programming language is limited in size, usually to 32 bits. If you want to use integers above the limit, you need to write your own code. A large integer can be represented by a string over `0,1,2,...9`. For example, string `12345678900987654321123456789009876543211234567890` represents a 50 digits integer. The input contains several lines. Each line starts with an interger, then either + or *, and then another integer. Assume the integer is 50 digits, and for simplicity, assume the second integer for multiplication is a single digit (between 0 and 9).
     
 * Write functions for + and *.
 * Write a main function which calculates the result from the input, using functions implemented in a.
