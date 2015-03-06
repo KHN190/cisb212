@@ -37,7 +37,7 @@ Queue Dequeue(Queue Q) {
 }
 
 int isFull(Queue Q) {
-	printf("Queue can never be full\n");
+	// printf("Queue can never be full\n");
 	return 0;
 }
 
