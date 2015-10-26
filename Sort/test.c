@@ -37,11 +37,11 @@ int main(void)
 	InsertSort(array, ARRSIZE1);
 	puts("Insertion Sort #1");
 
-	for(i = 0; i < ARRSIZE1; ++i)
-	{
-		printf("%d ", array[i]);
-	}
-	puts("");
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// {
+	// 	printf("%d ", array[i]);
+	// }
+	// puts("");
 
 	printmove();
 
@@ -52,178 +52,178 @@ int main(void)
 	// // // //
 
 	// Initilization
-	fp = fopen(DATA100, "rb+");
-	if(!fp)
-	{
-		puts("ERROR: Failed to open file.");
-		exit(-1);
-	}
+	// fp = fopen(DATA100, "rb+");
+	// if(!fp)
+	// {
+	// 	puts("ERROR: Failed to open file.");
+	// 	exit(-1);
+	// }
 
-	array = malloc(sizeof(int) * ARRSIZE2);
-	if(!array)
-	{
-		puts("ERROR: Failed to allocate mem.");
-		exit(-1);
-	}
+	// array = malloc(sizeof(int) * ARRSIZE2);
+	// if(!array)
+	// {
+	// 	puts("ERROR: Failed to allocate mem.");
+	// 	exit(-1);
+	// }
 
-	clearmove();
+	// clearmove();
 
-	// Link Insert Sort
-	plist l = LinkInsertSort(array, ARRSIZE2);
-	puts("Link Insertion Sort #2");
+	// // Link Insert Sort
+	// plist l = LinkInsertSort(array, ARRSIZE2);
+	// puts("Link Insertion Sort #2");
 
-	PrintList(l);
-	printmove();
+	// PrintList(l);
+	// printmove();
 	
-	// Release Memory
-	DestroyList(l);
-	free(array);
-	fclose(fp);
+	// // Release Memory
+	// DestroyList(l);
+	// free(array);
+	// fclose(fp);
 	
-	// // // //
+	// // // // //
 
-	// Initialization
-	fp = fopen(DATA10000, "rb+");
-	if(!fp)
-	{
-		puts("ERROR: Failed to open data10000.");
-		exit(-1);
-	}
+	// // Initialization
+	// fp = fopen(DATA10000, "rb+");
+	// if(!fp)
+	// {
+	// 	puts("ERROR: Failed to open data10000.");
+	// 	exit(-1);
+	// }
 
-	array = malloc(sizeof(int) * ARRSIZE1);
-	if(!array)
-	{
-		puts("ERROR: Failed to allocate mem.");
-		exit(-1);
-	}
+	// array = malloc(sizeof(int) * ARRSIZE1);
+	// if(!array)
+	// {
+	// 	puts("ERROR: Failed to allocate mem.");
+	// 	exit(-1);
+	// }
 
-	for(i = 0; i < ARRSIZE1; ++i)
-	{
-		fscanf(fp, "%d", &curr);
-		array[i] = curr;
-	}
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// {
+	// 	fscanf(fp, "%d", &curr);
+	// 	array[i] = curr;
+	// }
 
-	clearmove();
+	// clearmove();
 
-	// Shell Sort
-	shell(array, ARRSIZE1);
-	puts("Shell & Hibbard Sort #3");
+	// // Shell Sort
+	// shell(array, ARRSIZE1);
+	// puts("Shell & Hibbard Sort #3");
 
-	for(i = 0; i < ARRSIZE1; ++i)
-		printf("%d ", array[i]);
-	puts("");
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// 	printf("%d ", array[i]);
+	// puts("");
 
-	printmove();
+	// printmove();
 
-	fclose(fp);
-	free(array);
+	// fclose(fp);
+	// free(array);
 
-	// // // //
+	// // // // //
 
-	// Initialization
-	fp = fopen(DATA10000, "rb+");
-	if(!fp)
-	{
-		puts("ERROR: Failed to open data10000.");
-		exit(-1);
-	}
+	// // Initialization
+	// fp = fopen(DATA10000, "rb+");
+	// if(!fp)
+	// {
+	// 	puts("ERROR: Failed to open data10000.");
+	// 	exit(-1);
+	// }
 
-	array = malloc(sizeof(int) * ARRSIZE1);
-	if(!array)
-	{
-		puts("ERROR: Failed to allocate memory.");
-		exit(-1);
-	}
+	// array = malloc(sizeof(int) * ARRSIZE1);
+	// if(!array)
+	// {
+	// 	puts("ERROR: Failed to allocate memory.");
+	// 	exit(-1);
+	// }
 
-	for(i = 0; i < ARRSIZE1; ++i)
-	{
-		fscanf(fp, "%d", &curr);
-		array[i] = curr;
-	}
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// {
+	// 	fscanf(fp, "%d", &curr);
+	// 	array[i] = curr;
+	// }
 
-	clearmove();
+	// clearmove();
 
-	// Hibbard's Incre
-	hibbard(array, ARRSIZE1);
+	// // Hibbard's Incre
+	// hibbard(array, ARRSIZE1);
 
-	for(i = 0; i < ARRSIZE1; ++i)
-		printf("%d ", array[i]);
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// 	printf("%d ", array[i]);
 
-	putchar('\n');
-	printmove();
+	// putchar('\n');
+	// printmove();
 
-	// Release Memory
-	fclose(fp);
-	free(array);
+	// // Release Memory
+	// fclose(fp);
+	// free(array);
 
-	// // // //
+	// // // // //
 
-	// Initialization
-	fp = fopen(DATA100, "rb+");
-	if(!fp)
-	{
-		puts("ERROR: Failed to open data100.");
-		exit(-1);
-	}
+	// // Initialization
+	// fp = fopen(DATA100, "rb+");
+	// if(!fp)
+	// {
+	// 	puts("ERROR: Failed to open data100.");
+	// 	exit(-1);
+	// }
 
-	array = malloc(sizeof(int) * ARRSIZE2);
-	if(!array)
-	{
-		puts("ERROR: Failed to allocate memory.");
-		exit(-1);
-	}
+	// array = malloc(sizeof(int) * ARRSIZE2);
+	// if(!array)
+	// {
+	// 	puts("ERROR: Failed to allocate memory.");
+	// 	exit(-1);
+	// }
 
-	l = CreateList(array, ARRSIZE2);
+	// l = CreateList(array, ARRSIZE2);
 
-	// Merge sort
-	MergeSort(&l);
-	puts("Merge Sort #4");
-	PrintList(l);
+	// // Merge sort
+	// MergeSort(&l);
+	// puts("Merge Sort #4");
+	// PrintList(l);
 	
-	// Release Resource
-	DestroyList(l);
-	free(array);
-	fclose(fp);
+	// // Release Resource
+	// DestroyList(l);
+	// free(array);
+	// fclose(fp);
 
-	// // // //
+	// // // // //
 
-	// Initialization
-	fp = fopen(DATA10000, "rb+");
-	if(!fp)
-	{
-		puts("ERROR: Failed to open data10000.");
-		exit(-1);
-	}
+	// // Initialization
+	// fp = fopen(DATA10000, "rb+");
+	// if(!fp)
+	// {
+	// 	puts("ERROR: Failed to open data10000.");
+	// 	exit(-1);
+	// }
 
-	array = malloc(sizeof(int) * ARRSIZE1);
-	if(!array)
-	{
-		puts("ERROR: Failed to allocate memory.");
-		exit(-1);
-	}
+	// array = malloc(sizeof(int) * ARRSIZE1);
+	// if(!array)
+	// {
+	// 	puts("ERROR: Failed to allocate memory.");
+	// 	exit(-1);
+	// }
 
-	for(i = 0; i < ARRSIZE1; ++i)
-	{
-		fscanf(fp, "%d", &curr);
-		array[i] = curr;
-	}
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// {
+	// 	fscanf(fp, "%d", &curr);
+	// 	array[i] = curr;
+	// }
 
-	clearmove();
+	// clearmove();
 
-	// Quick Sort
-	puts("Quick Sort #5");
+	// // Quick Sort
+	// puts("Quick Sort #5");
 
-	Quicksort(array, ARRSIZE1);
+	// Quicksort(array, ARRSIZE1);
 
-	for(i = 0; i < ARRSIZE1; ++i)
-		printf("%d ",array[i]);
-	puts("");
+	// for(i = 0; i < ARRSIZE1; ++i)
+	// 	printf("%d ",array[i]);
+	// puts("");
 
-	printmove();
+	// printmove();
 
-	// Release Memory
-	free(array);
-	fclose(fp);
+	// // Release Memory
+	// free(array);
+	// fclose(fp);
 
 	return 0;
 }
